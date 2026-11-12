@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Title-->
+    <title>CampusFind | Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <header class="navbar">
+        <!--Brand Logo-->
+        <a class="logo" href="index.html">CampusFind</a>
+
+        <!--Navigation-->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#results">Browse Items</a>
+        </div>
+
+        <!--Sign In and Report button-->
+        <div class="nav-actions">
+            <a class="sign-in active-link" href="signin.html">Sign In</a>
+            <a class="btn" href="/html/Report.html">Report an Item</a>
+        </div>
+    </header>
+
+    <!-- Sign In Form Section -->
+    <div class="hero signin-hero">
+        <div class="signin-card">
+            <h2>Sign In</h2>
+            <!-- form -->
+            <form id="signin-form">
+                <div class="form-group">
+                    <label for="email">Campus Email</label>
+                    <input type="email" id="email" name="email" placeholder="student@campus.edu" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                
+                <!-- Error Message  -->
+                <p id="error-msg" style="color: #dc3545; font-size: 13px; margin-bottom: 15px; display: none; text-align: center;"></p>
+
+                <button type="submit" class="btn signin-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="footer">
+        <p class="footer-text">&copy; 2026 CampusFind. All rights reserved.</p>
+        <div class="footer-grid">
+            <div class="footer-btn"> 
+                <a href="/html/index.html">Home</a>         
+            </div>
+            <div class="footer-btn">
+                <a href="/html/Report.html">Report</a>
+            </div>
+            <div class="footer-btn">
+                <a href="/html/admindash.html">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Js -->
+    <script src="{{ url_for('static', filename='js/signin.js') }}"></script>
+</body>
+</html>

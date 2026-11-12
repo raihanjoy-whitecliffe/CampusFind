@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Title-->
+    <title>CampusFind | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <header class="navbar">
+        <!--Brand Logo-->
+        <a class="logo" href="index.html">CampusFind</a>
+
+        <!--Navigation-->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#results">Browse Items</a>
+        </div>
+
+        <!--Sign In and Report button-->
+        <div class="nav-actions">
+            <a class="sign-in" href="/signin">Sign In</a>
+            <a class="btn" href="/html/Report.html">Report an Item</a>
+        </div>
+    </header>
+
+    <!--Heading and Searchbar-->
+    <div class="hero">
+        <h1>Lost something?<br>Found something?</h1>
+        <p>Search our campus listings to find lost items or help return found property to its rightful owner.</p>
+        <div class="hero-bg">
+        <img src="{{ url_for('static', filename='img/home-main.webp') }}" alt="CampusFind hero image">        <!--Searchbar-->
+        <form class="search-bar" id="search-form">
+            <input type="text" id="search-input" placeholder="Search by item name, description or keyword..">
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+
+    <!--Filters-->
+    <div class="filters">
+        <!--Report type-->
+        <div class="filter-group">
+            <label>Report type</label>
+            <div class="chips" id="type-chips">
+                <button class="chip active" data-type="all">All</button>
+                <button class="chip" data-type="Lost">Lost</button>
+                <button class="chip" data-type="Found">Found</button>
+            </div>
+        </div>
+
+        <!--Category-->
+        <div class="filter-group">
+            <label for="category-filter">Category</label>
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+                <option>Accessories</option>
+                <option>Keys</option>
+                <option>Electronics</option>
+                <option>Bags</option>
+                <option>Clothing</option>
+            </select>
+        </div>
+
+        <!--Location-->
+        <div class="filter-group">
+            <label for="location-filter">Location</label>
+            <select id="location-filter">
+                <option value="all">All Locations</option>
+                <option>Building A - Library</option>
+                <option>Building B - Lecture Hall</option>
+                <option>Student Centre</option>
+                <option>Main Reception</option>
+                <option>Computer Lab</option>
+            </select>
+        </div>
+
+        <!--Date-->
+        <div class="filter-group">
+            <label for="date-filter">Date</label>
+            <select id="date-filter">
+                <option value="all">Any Date</option>
+                <option value="2025-10">October 2025</option>
+                <option value="2025-09">September 2025</option>
+            </select>
+        </div>
+
+        <!--Status-->
+        <div class="filter-group">
+            <label for="status-filter">Status</label>
+            <select id="status-filter">
+                <option value="all">All Statuses</option>
+                <option>Open</option>
+                <option>Possible Match</option>
+                <option>Claimed</option>
+                <option>Returned</option>
+                <option>Closed</option>
+            </select>
+        </div>
+
+        <!--Filter Reset-->
+        <button class="clear-link" id="clear-filters">Clear Filters</button>
+    </div>
+
+    <!--Results Section-->
+    <div class="results-section" id="results">
+        <!--Number of results and Sort-->
+        <div class="results-header">
+            <p id="result-count">0 results found</p>
+            <div class="sort-box">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="name">Name (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <!--Item cards-->
+        <div class="card-grid" id="card-grid"></div>
+
+        <!--Message when nothing matches (hidden at first)-->
+        <div class="empty-state" id="empty-state" hidden>
+            <h3>No matching items</h3>
+            <p>Try adjusting your filters or search terms.</p>
+        </div>
+    </div>
+
+    <!--js-->
+    <script src="script.js"></script>
+
+
+
+<!--Footer-->
+<footer class="footer">
+    <p class="footer-text">&copy; 2026 CampusFind. All rights reserved.</p>
+    <div class="footer-grid">
+        <div class="footer-btn"> 
+            <a href="/html/index.html">Home</a>         
+        </div>
+        <div class="footer-btn">
+            <a href="/html/Report.html">Report</a>
+        </div>
+        <div class="footer-btn">
+            <a href="/html/admindash.html">Admin</a>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>

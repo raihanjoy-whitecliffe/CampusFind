@@ -1,0 +1,559 @@
+/*----------Basic Setup----------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fb;
+    color: #1f2937;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*----------Animations (used further down)----------------*/
+
+/* Cards fade in while sliding up a little */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero text slides in from the left */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*----------Navigation Bar and Contents----------------*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9dee7;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0b2a5b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #1f2937;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect on Navbar element*/
+.nav-links a:hover {
+    background-color: #1565d8;
+    color: #ffffff;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sign-in {
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sign-in:hover {
+    color: #1565d8;
+}
+
+/*----------Buttons----------------*/
+
+.btn {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #1565d8;
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* hover effect for buttons */
+.btn:hover {
+    background-color: #0b2a5b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* White button with blue border (View Details) */
+.btn-outline {
+    background-color: #ffffff;
+    color: #1565d8;
+    border: 2px solid #1565d8;
+    width: 100%;
+}
+
+.btn-outline:hover {
+    background-color: #1565d8;
+    color: #ffffff;
+}
+
+/*----------Hero and Searchbar----------------*/
+
+.hero {
+    padding: 70px 40px;
+    background-color: #dce8fb;
+}
+
+.hero h1 {
+    font-size: 45px;
+    color: #0b2a5b;
+    margin-bottom: 15px;
+    animation: slideIn 1s ease;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #4b5563;
+    width: 45%;
+    margin-bottom: 30px;
+    animation: slideIn 1.4s ease;
+}
+
+.search-bar {
+    display: flex;
+    width: 70%;
+    background-color: #ffffff;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Bar grows a little when you click inside it */
+.search-bar:focus-within {
+    transform: scale(1.02);
+    box-shadow: 0 12px 35px rgba(21, 101, 216, 0.4);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+/*----------Filters----------------*/
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 25px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9dee7;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-group label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #6b7280;
+}
+
+.filter-group select {
+    padding: 9px 12px;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    background-color: #ffffff;
+    min-width: 150px;
+    transition: all 0.3s ease;
+}
+
+.filter-group select:hover {
+    border-color: #1565d8;
+}
+
+/* Lost / Found / All buttons */
+.chips {
+    display: flex;
+    gap: 8px;
+}
+
+.chip {
+    padding: 8px 18px;
+    border: 1px solid #d9dee7;
+    border-radius: 50px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.chip:hover {
+    background-color: #e8f0fc;
+    transform: translateY(-2px);
+}
+
+/* current option */
+.chip.active {
+    background-color: #1565d8;
+    color: #ffffff;
+    border-color: #1565d8;
+}
+
+.clear-link {
+    background: none;
+    border: none;
+    color: #1565d8;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 9px;
+    transition: all 0.3s ease;
+}
+
+.clear-link:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+/*----------Results Section----------------*/
+
+.results-section {
+    padding: 30px 40px 60px;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.sort-box select {
+    padding: 7px 10px;
+    border: 1px solid #d9dee7;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+/*----------Item Cards----------------*/
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #d9dee7;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    animation: fadeUp 0.6s ease;
+}
+
+/* Card hover */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(21, 101, 216, 0.3);
+}
+
+.card-top {
+    position: relative;
+}
+
+/* main pic bg*/
+.card-placeholder {
+    height: 120px;
+    background-color: #e5e9f0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-placeholder {
+    background-color: #dce8fb;
+    font-size: 48px;
+}
+
+/* Lost Found tag */
+.card-type {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #0b2a5b;
+}
+
+.card .category {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.card .detail {
+    font-size: 14px;
+}
+
+.card .btn {
+    margin-top: auto;
+}
+
+/*----------Badges (Lost, Found and Status)----------------*/
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.badge.lost {
+    background-color: #fde2e2;
+    color: #c0392b;
+}
+
+.badge.found {
+    background-color: #d9f4e3;
+    color: #1e7a45;
+}
+
+.badge.open {
+    background-color: #fde2e2;
+    color: #c0392b;
+}
+
+.badge.possible-match {
+    background-color: #fdecc8;
+    color: #a56a00;
+}
+
+.badge.claimed {
+    background-color: #fdecc8;
+    color: #a56a00;
+}
+
+.badge.returned {
+    background-color: #d9f4e3;
+    color: #1e7a45;
+}
+
+.badge.closed {
+    background-color: #e5e7eb;
+    color: #4b5563;
+}
+
+/*----------No Results Message----------------*/
+
+.empty-state {
+    text-align: center;
+    padding: 60px 0;
+    color: #6b7280;
+    animation: fadeUp 0.6s ease;
+}
+
+.empty-state h3 {
+    color: #0b2a5b;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+/*----------Footer----------------*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9dee7;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.footer-btn {
+  background-color: #f1f3f5;
+  border: 1px solid #d9dee7;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+.footer-btn a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #333333;
+  text-decoration: none;
+}
+
+.footer-btn a:hover {
+  background-color: #e2e6ea;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: rgba(137, 137, 137, 0.664);
+}
+
+
+
+
+/*Signin Page */
+/* Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Form Positioning */
+.signin-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Card container styling */
+.signin-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #d9dee7;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.signin-card h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #333333;
+    text-align: center;
+}
+
+/* Form controls */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #d9dee7;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+.signin-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+/* Present Tab*/
+.active-link {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+/*----------Phones and tablets----------------*/
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero p,
+    .search-bar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-links {
+        display: none;
+    }
+}
