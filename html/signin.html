@@ -31,7 +31,7 @@
         <div class="signin-card">
             <h2>Sign In</h2>
             <!-- form -->
-            <form id="signin-form">
+            <form id="signin-form" method="POST" action="{{ url_for('signin') }}">
                 <div class="form-group">
                     <label for="email">Campus Email</label>
                     <input type="email" id="email" name="email" placeholder="student@campus.edu" required>
@@ -43,13 +43,18 @@
                 </div>
                 
                 <!-- Error Message  -->
-                <p id="error-msg" style="color: #dc3545; font-size: 13px; margin-bottom: 15px; display: none; text-align: center;"></p>
-
+                <p id="error-msg"></p>
                 <button type="submit" class="btn signin-btn">Login</button>
             </form>
         </div>
     </div>
+    <script>
+        const errorMessage = "{{ error or '' }}";
 
+        if (errorMessage) {
+            document.getElementById("error-msg").textContent = errorMessage;
+        }
+    </script>
     <!--Footer-->
     <footer class="footer">
         <p class="footer-text">&copy; 2026 CampusFind. All rights reserved.</p>
@@ -67,6 +72,5 @@
     </footer>
 
     <!-- Js -->
-    <script src="{{ url_for('static', filename='js/signin.js') }}"></script>
 </body>
 </html>

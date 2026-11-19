@@ -17,9 +17,9 @@ a {
     color: inherit;
 }
 
-/*----------Animations (used further down)----------------*/
+/*----------Animations----------------*/
 
-/* Cards fade in while sliding up a little */
+/* Cards fade in */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -31,7 +31,7 @@ a {
     }
 }
 
-/* Hero text slides in from the left */
+/* Hero text animation */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -73,7 +73,7 @@ a {
     transition: all 0.3s ease;
 }
 
-/* Hover Effect on Navbar element*/
+/* Navbar Hover Effect*/
 .nav-links a:hover {
     background-color: #1565d8;
     color: #ffffff;
@@ -117,7 +117,7 @@ a {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* White button with blue border (View Details) */
+/* button */
 .btn-outline {
     background-color: #ffffff;
     color: #1565d8;
@@ -162,7 +162,7 @@ a {
     transition: all 0.3s ease;
 }
 
-/* Bar grows a little when you click inside it */
+/* Search Bar transition */
 .search-bar:focus-within {
     transform: scale(1.02);
     box-shadow: 0 12px 35px rgba(21, 101, 216, 0.4);
@@ -530,6 +530,20 @@ body {
     cursor: pointer;
     border: none;
 }
+
+/* Sign In Error Message */
+#error-msg {
+    color: #dc3545;
+    background-color: #fce8e8;
+    border: 1px solid #f5c2c7;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin: 12px auto 15px;
+    font-size: 13px;
+    text-align: center;
+    width: fit-content;
+}
+
 
 /* Present Tab*/
 .active-link {
