@@ -21,8 +21,11 @@
 
         <!--Sign In and Report button-->
         <div class="nav-actions">
-            <a class="sign-in" href="/signin">Sign In</a>
-            <a class="btn" href="{{ url_for('report') }}">Report an Item</a>
+            {% if session.get('user_id') %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('signin') }}">Sign In</a>
+            {% endif %}
         </div>
     </header>
 

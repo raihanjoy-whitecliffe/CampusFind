@@ -67,6 +67,12 @@ def signin():
 def report():
     return render_template("Report.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("home"))
+
+
 @app.route("/test-db")
 def test_db():
     try:
